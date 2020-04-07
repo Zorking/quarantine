@@ -63,7 +63,7 @@ fn not_found() -> JsonValue {
 fn rocket() -> rocket::Rocket {
     rocket::ignite()
         .attach(DbConn::fairing())
-        .mount("/message", routes![get_all, get_by_id, create, update, delete])
+        .mount("/", routes![get_all, get_by_id, create, update, delete])
         .register(catchers![not_found])
 }
 
